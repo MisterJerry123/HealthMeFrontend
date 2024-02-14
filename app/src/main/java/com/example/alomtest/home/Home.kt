@@ -12,14 +12,17 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.alomtest.R
 import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FragmentHomeBinding
 import com.example.alomtest.databinding.FragmentMypageMainBinding
+import com.example.alomtest.food.mainpage.SharedViewModelFoodcal
 import kotlin.math.roundToInt
 import kotlin.system.exitProcess
 
 class Home : Fragment() {
+    private val SharedViewModelFoodcal: SharedViewModelFoodcal by activityViewModels()
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var binding2 : ActivityMainBinding
@@ -103,6 +106,7 @@ class Home : Fragment() {
 //        if(home_bmi>300){
 //            home_bmi=300.0
 //        }
+        binding.HomeCal.text = SharedViewModelFoodcal.totalCalories.toString()
 
 
 

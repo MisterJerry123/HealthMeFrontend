@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
->
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<!--android:label="@string/app_name"-->
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,43 +13,36 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alomtest"
-        android:usesCleartextTraffic="true"
-       >
-
-
-
-<!--        android:theme="@style/Theme.Alomtest"-->
-<!--        <activity-->
-<!--            android:name=".SettingActivity"-->
-<!--            android:exported="false" />-->
-
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="true">-->
-
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".food.foodcustom02.FoodEditActivity"
+            android:exported="false" />
+        <!-- android:theme="@style/Theme.Alomtest" -->
+        <!-- <activity -->
+        <!-- android:name=".SettingActivity" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:exported="true"> -->
         <activity
             android:name=".retrofit.Api"
             android:exported="false" />
 
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
         <activity
             android:name=".login.resetpassword"
             android:exported="false" />
-
         <activity
             android:name=".login.login"
-            android:exported="false" />
-
-<!--        <activity-->
-<!--            android:name=".login.first"-->
-<!--            android:exported="false" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".login.first" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".login.account2"
             android:exported="false" />
-
         <activity
             android:name=".login.account"
             android:exported="false" />
@@ -67,11 +58,6 @@
         <activity
             android:name=".login.create_account_success"
             android:exported="false" />
-
-
-
-
-
         <activity
             android:name=".mypage.password_change"
             android:exported="false" />
@@ -86,16 +72,12 @@
             android:exported="false" />
         <activity
             android:name=".login.information"
-            android:exported="false" />
-
-
-<!--        <activity-->
-<!--            android:name=".login.account2"-->
-<!--            android:exported="true">-->
-                <activity
-                    android:name=".splash.SplashActivity"
-                    android:exported="true">
-
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".login.account2" -->
+        <!-- android:exported="true"> -->
+        <activity
+            android:name=".splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

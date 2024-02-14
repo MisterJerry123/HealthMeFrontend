@@ -1,4 +1,4 @@
-package com.example.alomtest.food.foodcustom01
+package com.example.alomtest.food.foodcustom02
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -18,20 +18,18 @@ import java.util.Locale
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.TimePicker
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.alomtest.R
-import com.example.alomtest.databinding.ActivityAddBinding
+import com.example.alomtest.databinding.ActivityFoodEditBinding
 import com.example.alomtest.food.foodcustom01.FoodAdapter
 import com.example.alomtest.food.foodcustom01.FoodData
 import com.example.alomtest.food.foodcustom01.SwipeGesture
 import com.example.alomtest.food.mainpage.Food
 import com.google.android.material.snackbar.Snackbar
-import java.util.Calendar
 
-class AddActivity : AppCompatActivity() {
+class FoodEditActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchView: SearchView
@@ -41,10 +39,10 @@ class AddActivity : AppCompatActivity() {
     private lateinit var timeimageView : ImageView
     private lateinit var expandableLayout: View
     private lateinit var expandableLayout_time: View
-    private var mList: MutableList<FoodData> = mutableListOf()
     private val deletedItems: MutableList<String> = mutableListOf()
+    private var mList: MutableList<FoodData> = mutableListOf()
     private lateinit var adapter: FoodAdapter
-    private lateinit var binding: ActivityAddBinding
+    private lateinit var binding: ActivityFoodEditBinding
     private lateinit var expandBtn: Button
     private lateinit var expandBtn_time: Button
     private lateinit var foodaddBtn: Button
@@ -54,11 +52,9 @@ class AddActivity : AppCompatActivity() {
     private lateinit var foodAddEditText: EditText
     private lateinit var kcalAddEditText: EditText
     private lateinit var timePicker: TimePicker
-    private lateinit var foodaddback: Button
     companion object {
-        const val RESULT_ADD_TASK = 123 // Any unique value
-        const val RESULT_BACK_TASK = 321
-
+        const val RESULT_EDIT_TASK = 456 // Any unique value
+        const val RESULT_EDIT_BACK_TASK = 654
     }
 
 
@@ -67,7 +63,7 @@ class AddActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddBinding.inflate(layoutInflater)
+        binding = ActivityFoodEditBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
@@ -79,8 +75,8 @@ class AddActivity : AppCompatActivity() {
         searchView = binding.searchViewfood
         expandableLayout = binding.expandableLayout
         expandableLayout_time = binding.expandableLayoutTime
-        expandBtn = binding.expandBtn
-        expandBtn_time = binding.expandBtnTime
+        expandBtn = binding.expandBtnEdit
+        expandBtn_time = binding.expandBtnTimeEdit
         foodaddBtn = binding.expandBtn2
         foodimageView = binding.foodimageView
         timeimageView = binding.timeimageView
@@ -88,17 +84,15 @@ class AddActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = FoodAdapter(mList)
         recyclerView.adapter = adapter
-        gramEditText = findViewById(R.id.add_edit)
+        gramEditText = findViewById(R.id.food_edit_edit)
         foodAddEditText = findViewById(R.id.foodAddEditText)
         kcalAddEditText = findViewById(R.id.kcalAddEditText)
         timePicker = findViewById(R.id.timePicker)
-        foodaddback=findViewById(R.id.food_add_back)
 
 
-        addDefaultFoodToList()
         loadSavedData()
 
-
+        // loadData()
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -109,31 +103,29 @@ class AddActivity : AppCompatActivity() {
                 return true
             }
         })
-
-        binding.addNext.setOnClickListener() {
-            val newTask = findViewById<EditText>(R.id.add_edit).text.toString()
-            val calories = mList.find { it.title == expandBtn.text.toString() }?.calories ?: 0
-            if(expandBtn.text.toString()=="선택하기" || binding.expandBtnTime.text.toString()=="선택하기"){
-                Snackbar.make(it, "정보를 모두 입력해주세요!", Snackbar.LENGTH_SHORT).show()
-            }else{
-
-                val resultintent = Intent(this, Food::class.java)
-                resultintent.putExtra("newTask", newTask)
-                resultintent.putExtra("foodname",expandBtn.text.toString())
-                resultintent.putExtra("timeFormat",binding.expandBtnTime.text.toString())
-                resultintent.putExtra("calories",calories)
-
-                setResult(RESULT_ADD_TASK, resultintent)
-                finish()}
-            // saveData()
-        }
-        binding.foodAddBack.setOnClickListener{
-            val backintent = Intent(this,Food::class.java)
-            setResult(RESULT_BACK_TASK,backintent)
+        binding.foodEditBack.setOnClickListener(){
+            val backintent = Intent()
+            setResult(RESULT_EDIT_BACK_TASK,backintent)
             finish()
         }
 
-        binding.expandBtn.setOnClickListener {
+        binding.foodEditNext.setOnClickListener() {
+            val editedDataTitle = findViewById<EditText>(R.id.food_edit_edit).text.toString()
+            val calories = mList.find { it.title == expandBtn.text.toString() }?.calories ?: 0
+            if(expandBtn.text.toString()=="선택하기" || expandBtn_time.text.toString()=="선택하기"){
+                Snackbar.make(it, "정보를 모두 입력해주세요!", Snackbar.LENGTH_SHORT).show()
+            }else{
+                val resultIntent = Intent()
+                resultIntent.putExtra("editedDataTitle", editedDataTitle)
+                resultIntent.putExtra("editfoodname",expandBtn.text.toString())
+                resultIntent.putExtra("edittimeFormat",expandBtn_time.text.toString())
+                resultIntent.putExtra("editcalories",calories)
+                resultIntent.putExtra("position", intent.getIntExtra("position", -1))
+                setResult(RESULT_EDIT_TASK, resultIntent)
+                finish()}
+        }
+
+        binding.expandBtnEdit.setOnClickListener {
             toggleImage()
 
             if (expandableLayout.visibility == View.GONE) {
@@ -146,7 +138,7 @@ class AddActivity : AppCompatActivity() {
 
         }
 
-        binding.expandBtnTime.setOnClickListener {
+        binding.expandBtnTimeEdit.setOnClickListener {
             toggleImageTime()
 
             if (expandableLayout_time.visibility == View.GONE) {
@@ -172,14 +164,6 @@ class AddActivity : AppCompatActivity() {
             cardView.visibility = View.GONE
         }
 
-        val currentTime = Calendar.getInstance()
-        val currentHour = currentTime.get(Calendar.HOUR_OF_DAY) // 시
-        val currentMinute = currentTime.get(Calendar.MINUTE) // 분
-
-        binding.timePicker.hour = currentHour
-        binding.timePicker.minute = currentMinute
-
-
         binding.timePicker.setOnTimeChangedListener { timePicker, hour, minute ->
             val timeFormat = if (hour > 12) {
                 val adjustedHour = hour - 12
@@ -188,7 +172,7 @@ class AddActivity : AppCompatActivity() {
                 "오전 $hour 시 $minute 분"
             }
 
-            binding.expandBtnTime.text = timeFormat
+            binding.expandBtnTimeEdit.text = timeFormat
             expandBtn_time.setTextColor(Color.parseColor("#000000"))
         }
 
@@ -210,61 +194,8 @@ class AddActivity : AppCompatActivity() {
         }
     }
 
-    private fun addDefaultFoodToList() {
-        val nextPosition = mList.size // 다음 위치는 현재 리스트의 크기와 같습니다.
-        mList.add(FoodData("닭갈비", 596))
-        mList.add(FoodData("닭꼬치", 177))
-        mList.add(FoodData("돼지갈비", 240))
-        mList.add(FoodData("불고기", 395))
-        mList.add(FoodData("훈제오리", 797))
-        mList.add(FoodData("굴국밥", 683))
-        mList.add(FoodData("김치국", 89))
-        mList.add(FoodData("떡만둣국", 625))
-        mList.add(FoodData("미소된장국", 38))
-        mList.add(FoodData("바지락조개국", 157))
-        mList.add(FoodData("뼈다귀해장국", 714))
-        mList.add(FoodData("소고기무국", 123))
-        mList.add(FoodData("소고기미역국", 151))
-        mList.add(FoodData("고추잡채", 256))
-        mList.add(FoodData("소고기샤브샤브", 264))
-        mList.add(FoodData("오징어순대", 467))
-        mList.add(FoodData("메밀전병", 168))
-        mList.add(FoodData("송편(깨)", 224))
-        mList.add(FoodData("송편(콩)", 194))
-        mList.add(FoodData("찹쌀떡", 277))
-        mList.add(FoodData("간짜장", 825))
-        mList.add(FoodData("김치라면", 552))
-        mList.add(FoodData("김치우동", 500))
-        mList.add(FoodData("닭칼국수", 663))
-        mList.add(FoodData("막국수", 572))
-        mList.add(FoodData("삼선짜장면", 804))
-        mList.add(FoodData("삼선짬뽕", 662))
-        mList.add(FoodData("쌀국수", 320))
-        mList.add(FoodData("짜장면", 797))
-        mList.add(FoodData("치즈라면", 595))
-        mList.add(FoodData("크림소스스파게티", 838))
-        mList.add(FoodData("토마토소스스파게티", 643))
-        mList.add(FoodData("해물칼국수", 628))
-        mList.add(FoodData("해물크림소스스파게티", 918))
-        mList.add(FoodData("해물토마토소스스파게티", 584))
-        mList.add(FoodData("골뱅이무침", 109))
-        mList.add(FoodData("곤드레나물밥", 522))
-        mList.add(FoodData("국밥", 418))
-        mList.add(FoodData("돼지국밥", 911))
-        mList.add(FoodData("비빔밥", 692))
-        mList.add(FoodData("새우튀김롤", 607))
-        mList.add(FoodData("소고기국밥", 331))
-        mList.add(FoodData("숯불갈비 삼각김밥", 161))
-        mList.add(FoodData("연어롤", 510))
-        mList.add(FoodData("연어초밥", 447))
 
-
-        adapter.notifyDataSetChanged()
-
-//        addFoodToList(mList.size - 1)
-    }
-
-    private fun addFoodToList() {
+    private fun addFoodToList(nextPosition: Int? = null) {
         val userInput = foodAddEditText.text.toString().trim()
         val userInput2 = kcalAddEditText.text.toString().trim()
 
@@ -316,9 +247,6 @@ class AddActivity : AppCompatActivity() {
                         // 삭제된 음식을 SharedPreferences에 저장
                         saveFoodListToSharedPreferences(mList, deletedItems)
                     }
-                    ItemTouchHelper.RIGHT -> {
-                        // 오른쪽으로 스와이프한 경우
-                    }
                 }
             }
         }
@@ -359,10 +287,44 @@ class AddActivity : AppCompatActivity() {
         val deletedItemsSet = sharedPreferences.getStringSet("deletedItems", setOf()) ?: setOf()
         val deletedItems = deletedItemsSet.toMutableList()
 
+        // 수정된 음식 리스트 불러오기
+//        val modifiedItemsSet = sharedPreferences.getStringSet("modifiedItems", setOf()) ?: setOf()
+//        val modifiedItems = modifiedItemsSet.map {
+//            val (title, calories) = it.split("|")
+//            FoodData(title, calories.toInt())
+//        }.toMutableList()
+
         // 삭제된 음식 및 수정된 음식 적용
         mList.removeAll { deletedItems.contains(it.title) }
         adapter.notifyDataSetChanged()
     }
 
 
+//    fun getgramFromEditText(): Int {
+//        val gramText = gramEditText.text.toString()
+//        return if (gramText.isNotEmpty()) {
+//            gramText.toInt()
+//        } else {
+//            // 기본값 또는 에러 처리를 원하는 대로 설정
+//            0
+//        }
+//    }
+
+//    @Suppress("DEPRECATION")
+//    fun getTimeFromTimePicker(): String {
+//        val hour: Int
+//        val minute: Int
+//
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            hour = timePicker.hour
+//            minute = timePicker.minute
+//        } else {
+//            @Suppress("DEPRECATION")
+//            hour = timePicker.currentHour
+//            @Suppress("DEPRECATION")
+//            minute = timePicker.currentMinute
+//        }
+//
+//        // 시간을 원하는 형식으로 포맷팅
+//        return String.format(Locale.getDefault(), "%02d:%02d", hour, minute)
 }
