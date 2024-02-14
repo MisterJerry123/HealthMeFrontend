@@ -307,7 +307,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView_time"
-        android:layout_width="341dp"
+        android:layout_width="340dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:orientation="vertical"
