@@ -14,7 +14,6 @@ import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentExerciseSelectExerciseBinding
 import com.example.alomtest.exercise.custompage01.add_routine_page
 import com.example.alomtest.exercise.custompage02.exercise_add_custom_list
-import com.example.alomtest.mypage.mypage_body_information
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse13
 import com.example.alomtest.retrofit.exercise_list

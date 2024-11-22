@@ -19,15 +19,13 @@ import com.example.alomtest.databinding.FragmentMypageMainBinding
 import kotlin.system.exitProcess
 
 
-class mypage_main : Fragment() {
+class MypageMain : Fragment() {
     private lateinit var binding: FragmentMypageMainBinding
-    private lateinit var binding2 : ActivityMainBinding //bottomnav 조종용
     private var backPressedTime: Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //적절한 페이지(Fragment)로 이동
         binding = FragmentMypageMainBinding.inflate(layoutInflater)
-        binding2 = ActivityMainBinding.inflate(layoutInflater)
         //
         binding.bodyMeasurementBtn3.setOnClickListener {
             replaceFragment(mypage_body_information())
@@ -151,7 +149,7 @@ class mypage_main : Fragment() {
 
 
 
-        fun getScreenHeight(context: mypage_main): Int {
+        fun getScreenHeight(context: MypageMain): Int {
             val displayMetrics = DisplayMetrics()
 
             var phoneheight=Resources.getSystem().displayMetrics.heightPixels
@@ -166,7 +164,7 @@ class mypage_main : Fragment() {
 
 
         //픽셀을 dp로 변경
-        fun pxToDp(context: mypage_main, px: Int): Float {
+        fun pxToDp(context: MypageMain, px: Int): Float {
             val displayMetrics = context.resources.displayMetrics
             return px / displayMetrics.density
         }

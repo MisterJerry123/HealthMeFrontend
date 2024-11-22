@@ -44,7 +44,7 @@
             android:name=".login.account2"
             android:exported="false" />
         <activity
-            android:name=".login.account"
+            android:name=".login.Account"
             android:exported="false" />
         <activity
             android:name=".login.terms"
@@ -71,12 +71,12 @@
             android:name=".Settings"
             android:exported="false" />
         <activity
-            android:name=".login.information"
+            android:name=".splash.SplashActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".login.account2" -->
         <!-- android:exported="true"> -->
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".login.information"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

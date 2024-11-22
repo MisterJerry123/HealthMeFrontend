@@ -2,17 +2,13 @@ package com.example.alomtest.exercise.startpage
 
 import android.content.Context
 import android.os.CountDownTimer
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.alomtest.databinding.CustomExerciseSetListBinding
 import com.example.alomtest.databinding.DoingExerciseSetItemFooterBinding
 import com.example.alomtest.databinding.DoingExerciseSetListBinding
-import com.example.alomtest.databinding.SetItemFooterBinding
 import com.example.alomtest.exercise.custompage01.set_list_item
 
 

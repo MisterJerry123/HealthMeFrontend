@@ -3,11 +3,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 
-class FoodAdapter(private var mList : MutableList<FoodData>) :
-    RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
+class FoodAdapter(private var mList : MutableList<FoodData>) :RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
     private var onItemClickListener: ((String) -> Unit)? = null
 
     fun setOnItemClickListener(listener: (String) -> Unit) {

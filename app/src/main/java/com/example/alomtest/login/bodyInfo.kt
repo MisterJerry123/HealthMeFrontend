@@ -6,5 +6,4 @@ data class bodyInfo(
     val gender:Boolean,
     val height:Double,
     val weight:Double
-
 )

@@ -1,14 +1,11 @@
 package com.example.alomtest.food.mainpage
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.graphics.toColor
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +14,6 @@ import androidx.lifecycle.ViewModel
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentFoodBinding
 import com.example.alomtest.food.foodcustom01.AddActivity
-import com.example.alomtest.food.foodcustom01.AddActivity.Companion.RESULT_ADD_TASK
 import com.example.alomtest.food.foodcustom02.FoodEditActivity
 
 

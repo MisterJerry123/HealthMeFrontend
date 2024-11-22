@@ -2,8 +2,6 @@ package com.example.alomtest.food.mainpage
 
 import android.content.Context
 import android.content.Intent
-import android.icu.util.MeasureUnit.ITEM
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +11,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alomtest.R
 import com.example.alomtest.food.foodcustom01.AddActivity
-import com.example.alomtest.food.foodcustom02.FoodEditActivity
 
 
 class AdapterClass (private val dataList:ArrayList<DataClass>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){

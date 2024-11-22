@@ -103,8 +103,6 @@ data class LoginBackendResponse14(
 
     val list:Array<exercise_list>
 
-
-
 )
 
 //data class exerciseList(

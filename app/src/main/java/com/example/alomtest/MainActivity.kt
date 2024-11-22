@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,7 +14,7 @@ import com.example.alomtest.databinding.FragmentMypageMainBinding
 import com.example.alomtest.exercise.mainpage.exercise_main_copy
 import com.example.alomtest.food.mainpage.Food
 import com.example.alomtest.home.Home
-import com.example.alomtest.mypage.mypage_main
+import com.example.alomtest.mypage.MypageMain
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse13
 import com.example.alomtest.retrofit.LoginBackendResponse7
@@ -79,11 +80,6 @@ class MainActivity : AppCompatActivity() {
 
                             Log.d("sharedpre에 저장 완료","")
 
-
-
-
-
-
                         }
                         401-> Toast.makeText(this@MainActivity,"서버가 동작하지 않습니다. ", Toast.LENGTH_SHORT).show()
                         403-> Toast.makeText(this@MainActivity,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
@@ -96,9 +92,6 @@ class MainActivity : AppCompatActivity() {
                             jsonObject2.put("email",email)
                             jsonObject2.put("refreshToken",refreshtoken)
 
-
-
-
                             api.refreshToken(accessToken = "Bearer $usertoken",JsonParser.parseString(jsonObject2.toString())).enqueue(object :
                                 retrofit2.Callback<LoginBackendResponse13> {
                                 override fun onResponse(
@@ -109,15 +102,8 @@ class MainActivity : AppCompatActivity() {
                                     Log.d("로그인 통신 성공", response.body().toString())
                                     Log.d("response코드",response.code().toString())
 
-
-
-
-                                    //Log.d("반환 메시지",response.body())
-
-
                                     when (response.code()) {
                                         200 -> {
-
                                             Toast.makeText(this@MainActivity, "access토큰 재발급 성공", Toast.LENGTH_LONG).show()
 
                                             val tok:LoginBackendResponse13?=response.body()
@@ -209,13 +195,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
-
                             //
 
 
@@ -268,12 +247,10 @@ class MainActivity : AppCompatActivity() {
                     menuItem.setIcon(R.drawable.schedule_selected) // 아이콘 변경
                 }
                 R.id.settings -> {
-                    replaceFragment(mypage_main())
+                    replaceFragment(MypageMain())
                     menuItem.setIcon(R.drawable.mypage_selected) // 아이콘 변경
                 }
-                else ->{
 
-                }
             }
             true
         }

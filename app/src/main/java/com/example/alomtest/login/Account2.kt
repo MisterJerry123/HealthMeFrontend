@@ -6,16 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import com.example.alomtest.R
 import com.example.alomtest.databinding.Account2LayoutBinding
-import com.example.alomtest.retrofit.Api
-import com.example.alomtest.retrofit.LoginBackendResponse2
-import com.example.alomtest.retrofit.LoginBackendResponse3
-import com.google.gson.JsonParser
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class account2 : AppCompatActivity() {
     lateinit var binding: Account2LayoutBinding

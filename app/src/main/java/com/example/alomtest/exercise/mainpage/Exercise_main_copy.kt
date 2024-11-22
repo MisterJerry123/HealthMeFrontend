@@ -16,23 +16,15 @@ import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentExerciseMainCopyBinding
-import com.example.alomtest.exercise.custompage01.add_routine_page
 import com.example.alomtest.exercise.custompage01.doing_exercise
-import com.example.alomtest.exercise.custompage02.exercise_add_custom_list
 import com.example.alomtest.retrofit.Api
-import com.example.alomtest.retrofit.LoginBackendResponse12
-import com.example.alomtest.retrofit.email
 import com.example.alomtest.retrofit.exercise_routine_list
-import com.example.alomtest.retrofit.exerise_preset_list
 import com.example.alomtest.routineIndicator
 import com.google.gson.Gson
-import com.google.gson.JsonElement
 import com.google.gson.JsonParser
-import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
-import java.util.Collections.list
 import kotlin.system.exitProcess
 
 

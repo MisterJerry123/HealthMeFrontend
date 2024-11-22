@@ -14,10 +14,6 @@ import com.example.alomtest.databinding.FragmentMypageBodyInformationEditmodeBin
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse12
 import com.example.alomtest.retrofit.LoginBackendResponse13
-import com.example.alomtest.retrofit.LoginBackendResponse6
-import com.example.alomtest.retrofit.LoginBackendResponse7
-import com.example.alomtest.retrofit.LoginBackendResponse8
-import com.example.alomtest.retrofit.email
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import retrofit2.Call

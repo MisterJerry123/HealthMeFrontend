@@ -13,7 +13,6 @@ import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentPasswordChangeBinding
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse13
-import com.example.alomtest.retrofit.LoginBackendResponse7
 import com.example.alomtest.retrofit.LoginBackendResponse8
 import com.google.gson.JsonParser
 import org.json.JSONObject

@@ -3,17 +3,11 @@ package com.example.alomtest.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 
-import com.example.alomtest.R
 import com.example.alomtest.databinding.ResetpasswordLayoutBinding
-import com.example.alomtest.mypage.mypage_setting
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse11
 import com.google.gson.JsonParser

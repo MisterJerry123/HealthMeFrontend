@@ -8,15 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat
 import com.example.alomtest.MainActivity
-import com.example.alomtest.R
-import com.example.alomtest.databinding.ActivityMainBinding
 import com.example.alomtest.databinding.FirstLayoutBinding
 import kotlin.system.exitProcess
 
@@ -41,7 +36,7 @@ class first : AppCompatActivity() {
             finish()
         }
         binding.account1.setOnClickListener{
-            val intent = Intent(this, account::class.java)
+            val intent = Intent(this, Account::class.java)
             startActivity(intent)
             finish()
         }

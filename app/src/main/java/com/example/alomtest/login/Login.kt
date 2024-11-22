@@ -1,6 +1,5 @@
 package com.example.alomtest.login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import retrofit2.Call
@@ -8,14 +7,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.alomtest.retrofit.Api
 import com.example.alomtest.retrofit.LoginBackendResponse
 import com.example.alomtest.MainActivity
 import com.example.alomtest.retrofit.UserModel
 import com.example.alomtest.databinding.LoginLayoutBinding
-import com.example.alomtest.mypage.mypage_main
-import com.example.alomtest.retrofit.email
 import com.google.gson.JsonParser
 import org.json.JSONObject
 import retrofit2.Callback

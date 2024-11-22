@@ -5,7 +5,6 @@ import SharedPreferenceUtils
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -15,7 +14,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityCompat.recreate
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import com.example.alomtest.R
 
 

@@ -7,14 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Adapter
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.example.alomtest.MyViewModel
-import com.example.alomtest.R
 
 import com.example.alomtest.databinding.CustomExerciseSetListBinding
 import com.example.alomtest.databinding.SetItemFooterBinding

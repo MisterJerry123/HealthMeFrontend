@@ -2,7 +2,6 @@ package com.example.alomtest.exercise.mainpage
 
 import SharedPreferenceUtils
 import android.content.Context
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,9 +12,6 @@ import com.example.alomtest.R
 import com.example.alomtest.databinding.RoutineItemExampleBinding
 import com.example.alomtest.databinding.RoutineItemFooterBinding
 import com.example.alomtest.exercise.custompage01.add_routine_page
-import com.example.alomtest.exercise.custompage01.doing_exercise
-import com.example.alomtest.exerciseData
-import com.example.alomtest.retrofit.exercise_list
 import com.example.alomtest.retrofit.exercise_routine_list
 import com.example.alomtest.routineIndicator
 import org.json.JSONObject

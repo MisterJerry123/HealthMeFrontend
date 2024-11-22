@@ -11,7 +11,6 @@ import com.example.alomtest.R
 import com.example.alomtest.databinding.FragmentExerciseAddCustomListBinding
 import com.example.alomtest.exercise.custompage01.add_routine_page
 import com.example.alomtest.exercise.custompage03.exercise_select_exercise
-import com.example.alomtest.mypage.mypage_body_information
 
 class exercise_add_custom_list : Fragment() {
     private lateinit var binding: FragmentExerciseAddCustomListBinding

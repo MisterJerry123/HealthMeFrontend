@@ -18,7 +18,7 @@ class mypage_body_information : Fragment() {
 
         binding=FragmentMypageBodyInformationBinding.inflate(layoutInflater)
         binding.backiconBtn.setOnClickListener {
-            replaceFragment(mypage_main())
+            replaceFragment(MypageMain())
 
         }
         binding.editModeIcon.setOnClickListener {
@@ -48,7 +48,7 @@ class mypage_body_information : Fragment() {
                 // 뒤로가기 이벤트가 발생했을 때 수행할 작업
                 // 예를 들어 특정 상황에서만 뒤로가기를 처리하고 싶은 경우 여기에 작성
 
-                replaceFragment(mypage_main())
+                replaceFragment(MypageMain())
 
             }
         }

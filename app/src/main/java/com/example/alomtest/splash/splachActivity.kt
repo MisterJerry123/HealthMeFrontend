@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.alomtest.databinding.AccountLayoutBinding
-import com.example.alomtest.databinding.FirstLayoutBinding
 import com.example.alomtest.databinding.SplashactivityLayoutBinding
 import com.example.alomtest.login.first
 

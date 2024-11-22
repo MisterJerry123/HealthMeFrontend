@@ -3,13 +3,9 @@ package com.example.alomtest.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.alomtest.R
-import com.example.alomtest.databinding.ForgetPasswordLayoutBinding
-import com.example.alomtest.databinding.LoginCreateAccountSuccessBinding
-import com.example.alomtest.databinding.TermsLayoutBinding
 
 class create_account_success:AppCompatActivity() {
     lateinit var email: String
@@ -32,11 +28,7 @@ class create_account_success:AppCompatActivity() {
         height=intent.getStringExtra("userheight").toString()
         gender=intent.getStringExtra("usergender").toString()
 
-
-
         val click = findViewById<ConstraintLayout>(R.id.background)
-
-
 
         click.setOnClickListener{
             Log.d("click", "클릭감지")

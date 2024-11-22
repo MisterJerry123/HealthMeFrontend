@@ -5,7 +5,6 @@ data class DataClass (var dataImage:Int, var dataTitle:String)
 data class routineIndicator(var title:String, var cnt:Int)
 
 data class presetDtoelement(
-
     val presetNumber:Int,
     val exerciseNumber:Int,
     val presetTitle:String,
@@ -14,11 +13,6 @@ data class presetDtoelement(
     val repetitionCount:Int,
     val exerciseName:String,
     val category:String
-
-
-
-
-
 )
 
 

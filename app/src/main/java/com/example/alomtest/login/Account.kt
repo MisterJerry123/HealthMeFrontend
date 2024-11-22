@@ -18,16 +18,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class account : AppCompatActivity() {
-    lateinit var binding: AccountLayoutBinding
+class Account : AppCompatActivity() {
+    private lateinit var binding: AccountLayoutBinding
     lateinit var email: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = AccountLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
             binding.checkEmail.isEnabled=false
-
-
             binding.sendCode.setOnClickListener {
                 email = binding.emailInput.text.toString().trim()//trim : 문자열 공백제거
 
@@ -51,13 +49,13 @@ class account : AppCompatActivity() {
                                 Log.d("response코드",response.code().toString())
 
                                 when (response.code()) {
-                                    200-> {Toast.makeText(this@account,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
+                                    200-> {Toast.makeText(this@Account,"인증코드를 이메일로 발송했습니다.", Toast.LENGTH_SHORT).show()
                                         binding.checkEmail.isEnabled=true
                                     }
-                                    401-> Toast.makeText(this@account,"이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
-                                    403-> Toast.makeText(this@account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
-                                    404 -> Toast.makeText(this@account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
-                                    500 -> Toast.makeText(this@account, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                                    401-> Toast.makeText(this@Account,"이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
+                                    403-> Toast.makeText(this@Account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                                    404 -> Toast.makeText(this@Account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                                    500 -> Toast.makeText(this@Account, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
                                 }
                             }
 
@@ -68,7 +66,7 @@ class account : AppCompatActivity() {
                         })
                 }
                 else{
-                    Toast.makeText(this@account,"이메일이 유효하지 않습니다.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Account,"이메일이 유효하지 않습니다.",Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -103,7 +101,7 @@ class account : AppCompatActivity() {
 
                         when (response.code()) {
                             200-> {
-                                Toast.makeText(this@account,"인증코드가 확인되었습니다.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@Account,"인증코드가 확인되었습니다.", Toast.LENGTH_SHORT).show()
                                 binding.sendCode.isEnabled=false
                                 binding.checkEmail.isEnabled=false
                                 binding.retransmissionBtn.isEnabled=false
@@ -115,7 +113,7 @@ class account : AppCompatActivity() {
                                 binding.nextBtn.setBackgroundResource(R.drawable.button_sample2)
 
                                 binding.nextBtn.setOnClickListener {
-                                    val intent = Intent(this@account, account2::class.java)
+                                    val intent = Intent(this@Account, account2::class.java)
                                     intent.putExtra("useremail",email)
                                     startActivity(intent)
                                     finish()
@@ -126,10 +124,10 @@ class account : AppCompatActivity() {
 
 
                             }
-                            401-> Toast.makeText(this@account,"인증코드가 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
-                            403-> Toast.makeText(this@account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
-                            404 -> Toast.makeText(this@account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
-                            500 -> Toast.makeText(this@account, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
+                            401-> Toast.makeText(this@Account,"인증코드가 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
+                            403-> Toast.makeText(this@Account,"로그인 실패 : 서버 접근 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                            404 -> Toast.makeText(this@Account, "로그인 실패 : 아이디나 비번이 올바르지 않습니다", Toast.LENGTH_LONG).show()
+                            500 -> Toast.makeText(this@Account, "로그인 실패 : 서버 오류", Toast.LENGTH_LONG).show()
                         }
                     }
 
@@ -153,7 +151,7 @@ class account : AppCompatActivity() {
                 // 뒤로가기 이벤트가 발생했을 때 수행할 작업
                 // 예를 들어 특정 상황에서만 뒤로가기를 처리하고 싶은 경우 여기에 작성
 
-                val intent = Intent(this@account, first::class.java)
+                val intent = Intent(this@Account, first::class.java)
                 startActivity(intent)
                 finish()
 
@@ -162,7 +160,7 @@ class account : AppCompatActivity() {
 
 
 
-        this@account.onBackPressedDispatcher.addCallback(this, callback)
+        this@Account.onBackPressedDispatcher.addCallback(this, callback)
 
 
     }

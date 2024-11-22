@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -18,15 +17,11 @@ import java.util.Locale
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.TimePicker
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.alomtest.R
 import com.example.alomtest.databinding.ActivityAddBinding
-import com.example.alomtest.food.foodcustom01.FoodAdapter
-import com.example.alomtest.food.foodcustom01.FoodData
-import com.example.alomtest.food.foodcustom01.SwipeGesture
 import com.example.alomtest.food.mainpage.Food
 import com.google.android.material.snackbar.Snackbar
 import java.util.Calendar
